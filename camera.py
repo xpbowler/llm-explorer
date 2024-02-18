@@ -57,7 +57,7 @@ while True:
     scores = interpreter.get_tensor(output_details[2]['index'])[0]  # Confidence scores
 
     for i in range(len(scores)):
-        if scores[i] > 0.5 and int(classes[i]) == 0:  # Confidence threshold and person class ID
+        if scores[i] > 0.4 and (50<=int(classes[i])<=60):  # Confidence threshold and person class ID
             ymin, xmin, ymax, xmax = boxes[i]
             (left, right, top, bottom) = (xmin * frame.shape[1], xmax * frame.shape[1],
                                           ymin * frame.shape[0], ymax * frame.shape[0])

@@ -4,7 +4,7 @@ from utils import *
 
 
 
-# ser = serial.Serial('/dev/cu.usbmodem11101', 9600)
+ser = serial.Serial('/dev/cu.usbmodem11101', 9600)
 llm = ChatOpenAI(model="gpt-4-1106-preview", temperature=0)
 
 
@@ -14,22 +14,24 @@ def execute_motor_inputs(commands):
     ret = None
     for command in commands:
         print(command)
-        # to_send = ""
-        # for c in command:
-        #     to_send += str(c) + " "
-        # ser.write(to_send.encode())
-        # time_to_sleep = float(command[1]) + 0.9
-        # time.sleep(time_to_sleep)
+        to_send = ""
+        for c in command:
+            to_send += str(c) + " "
+        ser.write(to_send.encode())
+        time_to_sleep = float(command[1]) + 0.9
+        time.sleep(time_to_sleep)
 
 @tool 
 def find_object(object):
     """Rotate your body until the object to find in the camera is in the center of the frame. Then stop rotating"""
-    for i in range(10):
+    for i in range(20):
         if rotate(object): break
+    to_send = "forward 1 5"
+    ser.write(to_send.encode())
+    time.sleep(2)
+    to_send = "sound"
+    ser.write(to_send.encode())
+    time.sleep(10)
     
-
-
-
-
 
 tools = [execute_motor_inputs, find_object]
