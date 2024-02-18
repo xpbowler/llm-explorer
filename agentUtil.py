@@ -6,7 +6,7 @@ from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.agents import AgentFinish
 from langchain_core.messages import AIMessage, HumanMessage
 from utils import parse
-from functions import tools, execute_motor_inputs
+from functions import tools, execute_motor_inputs, find_object
 # from utils import execute_commands, gpt
 import os 
 from dotenv import load_dotenv
@@ -17,13 +17,14 @@ os.environ["OPENAI_API_KEY"]= os.getenv("OPENAI_API_KEY")
 llm = ChatOpenAI(model="gpt-4-1106-preview", temperature=0)
 tool_dict = {
     "execute_motor_inputs": execute_motor_inputs,
+    "find_object": find_object,
 }
 
 prompt = ChatPromptTemplate.from_messages(
     [
         (
             "system",
-            "You are a 4-wheeled small robot vehicle, but you can't output motor commands to control your movements",
+            "You are a 4-wheeled small robot vehicle, but you can't output motor commands to control your movements and you cannot find objects.",
         ),
         ("user", "{input}"),
         MessagesPlaceholder(variable_name="agent_scratchpad"),
