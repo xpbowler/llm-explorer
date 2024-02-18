@@ -3,7 +3,6 @@ import openai
 from openai import OpenAI
 import os
 from dotenv import load_dotenv
-import asyncio 
 
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
