@@ -13,7 +13,7 @@ input_height = input_details[0]['shape'][1]
 input_width = input_details[0]['shape'][2]
 input_type = input_details[0]['dtype']  # Get the data type of the model input
 
-def is_centered(bbox, frame_width, frame_height, tolerance=0.15):
+def is_centered(bbox, frame_width, frame_height, tolerance=0.18):
     """
     Determine if the person's bounding box is centered in the frame.
     """
@@ -57,7 +57,7 @@ while True:
     scores = interpreter.get_tensor(output_details[2]['index'])[0]  # Confidence scores
 
     for i in range(len(scores)):
-        if scores[i] > 0.4 and (50<=int(classes[i])<=60):  # Confidence threshold and person class ID
+        if scores[i] > 0.35 and (50<=int(classes[i])<=60):  # Confidence threshold and person class ID
             ymin, xmin, ymax, xmax = boxes[i]
             (left, right, top, bottom) = (xmin * frame.shape[1], xmax * frame.shape[1],
                                           ymin * frame.shape[0], ymax * frame.shape[0])

@@ -24,9 +24,9 @@ def execute_motor_inputs(commands):
 @tool 
 def find_object(object):
     """Rotate your body until the object to find in the camera is in the center of the frame. Then stop rotating"""
-    for i in range(20):
+    for i in range(40):
         if rotate(object): break
-    to_send = "forward 1 5"
+    to_send = "forward 1.7 5"
     ser.write(to_send.encode())
     time.sleep(2)
     to_send = "sound"
