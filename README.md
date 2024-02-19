@@ -5,6 +5,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/xpbowler/llm-explorer)
 
 LLM Explorer is a voice-controlled robot using LLM agents. With only voice input, it is capable of identifying a target object, and driving towards it. Once the object has been reached, it plays a little surprise tune to celebrate!
+(Created during MakeUofT 2024 Hackathon along with Alexis Kam, Kennice Wong, and Hari Om Chadha.
 
 ## Why
 Controlling robot behavior historically relies on well-defined algorithms, control loops, and functions that always give the same output given the same input. It relies on largely numerical data and computation. However, you cannot control robot behavior with text as text has substantial input variability and encoded meaning. LLM Explorer uses LLM agents for defining and deciding robot behaviour, allowing for language-based decision making. 
