@@ -1,6 +1,6 @@
 import asyncio
-from agentUtil import run
-from speech_rec import recognize_speech
+from tools.agentUtil import run
+from utility.speech_rec import recognize_speech
 
 async def main():
     input = ''

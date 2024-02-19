@@ -5,8 +5,8 @@ from langchain.tools.render import format_tool_to_openai_function
 from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.agents import AgentFinish
 from langchain_core.messages import AIMessage, HumanMessage
-from utils import parse
-from functions import tools, execute_motor_inputs, find_object
+from tools.utils import parse
+from tools.functions import tools, execute_motor_inputs, find_object
 # from utils import execute_commands, gpt
 import os 
 from dotenv import load_dotenv
