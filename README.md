@@ -33,22 +33,52 @@ Github file structure:
 
 ```bash
 .
-├── R # R scripts used to pre-process raw RNA-seq data
-├── c_images # processed RNA-seq dataset (2D-transformed)
-├── src # React frontend desktop UI
-├── public # Frontend resources
-├── src-tauri # Rust backend
-
-
+├── arduino_controller
+├── tools 
+│   ├── agentUtil.py # Define LLM agent 
+│   ├── functions.py # Provide tools to agent
+│   ├── utils.py # Helper functions for world interactibility
+├── utility # Define methods for information input (sound, video)
+│   ├── camera.py
+│   ├── speech_rec.py
+├── README.md
+├── main.py # Root python script
+├── requirements.txt
+└── ssd-mobilenet.tflite
 ```
 
 Instructions:
 
-1. Clone the repository (<100MB including vector embedding model)
+1. Clone the repository 
 ```bash
 $ git clone https://github.com/xpbowler/llm-explorer
 ```
+
+(Optional) Set up python virtual environment
+```bash
+$ python3 -m venv venv
+$ source venv/bin/activate
+```
+
 2. Install required dependencies
 ```bash
 $ pip install -r requirements.txt
+```
+
+3. Set OPENAI_API_KEY environment variable
+```bash
+$ nano ~./bashrc
+$ export OPENAI_API_KEY="YOUR_API_KEY"
+```
+(venv)
+```bash
+$ nano venv/bin/activate
+$ export OPENAI_API_KEY="YOUR_API_KEY"
+```
+
+4. Configure/test microphone input and video input with `python camera.py`
+
+5. Run root python script with
+```bash
+$ python main.py
 ```
