@@ -11,7 +11,7 @@ Controlling robot behavior historically relies on well-defined algorithms, contr
 (Created during MakeUofT 2024 Hackathon along with [Alexis Kam](), [Kennice Wong](), and [Hari Om Chadha]().
 
 ## How it works
-LLMExplorer relies on [Langchain LLM agents](https://python.langchain.com/docs/get_started/introduction)  as the 'brain', if you will, to control the actions of the robot and decision making process. LLMExplorer is able to perceive the world around it through natural language as a modal of communication. We define tools for the core LLM agents that is trained specifically on using tool usage. Tools are user defined functions that we then pass into the LLM.
+LLMExplorer relies on [Langchain LLM agents](https://python.langchain.com/docs/get_started/introduction)  as the 'brain', to control the actions of the robot and decision making process. LLMExplorer is able to perceive the world around it through natural language as a modal of communication. We define tools for the core LLM agents that is trained specifically on using tool usage. Tools are user defined functions that we then pass into the LLM.
 
 The pipeline starts with [OpenAI Whisper](https://platform.openai.com/docs/guides/speech-to-text) speech-to-text, which is then passed into the LLM. The LLM then parses the information, extracting meaning and intent from the text. It is able to use the functions 'available' to it and send well defined inputs to control the arduino. The control inputs are then parsed with a parser and converted into motor actuations that control the robot movement.
 
