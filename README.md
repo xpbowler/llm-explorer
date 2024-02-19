@@ -5,15 +5,17 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/xpbowler/llm-explorer)
 
 LLM Explorer is a voice-controlled robot using LLM agents. With only voice input, it is capable of identifying a target object, and driving towards it. Once the object has been reached, it plays a little surprise tune to celebrate!
-(Created during MakeUofT 2024 Hackathon along with Alexis Kam, Kennice Wong, and Hari Om Chadha.
 
-## Why
 Controlling robot behavior historically relies on well-defined algorithms, control loops, and functions that always give the same output given the same input. It relies on largely numerical data and computation. However, you cannot control robot behavior with text as text has substantial input variability and encoded meaning. LLM Explorer uses LLM agents for defining and deciding robot behaviour, allowing for language-based decision making. 
 
-## How it works
-LLMExplorer relies on LLM agents as the 'brain', if you will, to control the actions of the robot and decision making process. LLMExplorer is able to perceive the world around it through natural language as a modal of communication. We define tools for the core LLM agents that is trained specifically on using tool usage. Tools are user defined functions that we then pass into the LLM.
+(Created during MakeUofT 2024 Hackathon along with [Alexis Kam](), [Kennice Wong](), and [Hari Om Chadha]().
 
-The pipeline starts with OpenAI Whisper speech-to-text, which is then passed into the LLM. The LLM then parses the information, extracting meaning and intent from the text. It is able to use the functions 'available' to it and send well defined inputs to control the arduino. The control inputs are then parsed with a parser and converted into motor actuations that control the robot movement.
+## How it works
+LLMExplorer relies on [Langchain LLM agents](https://python.langchain.com/docs/get_started/introduction)  as the 'brain', if you will, to control the actions of the robot and decision making process. LLMExplorer is able to perceive the world around it through natural language as a modal of communication. We define tools for the core LLM agents that is trained specifically on using tool usage. Tools are user defined functions that we then pass into the LLM.
+
+The pipeline starts with [OpenAI Whisper](https://platform.openai.com/docs/guides/speech-to-text) speech-to-text, which is then passed into the LLM. The LLM then parses the information, extracting meaning and intent from the text. It is able to use the functions 'available' to it and send well defined inputs to control the arduino. The control inputs are then parsed with a parser and converted into motor actuations that control the robot movement.
+
+For world perception, LLM Explorer uses the [ssd-mobilenet](https://www.kaggle.com/models/tensorflow/ssd-mobilenet-v1) in [TensorflowLite](https://www.tensorflow.org/lite) to detect objects. 
 
 ## 🔨 Installation
 
