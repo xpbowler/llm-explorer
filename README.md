@@ -66,7 +66,7 @@ $ pip install -r requirements.txt
 
 3. Set OPENAI_API_KEY environment variable
 ```bash
-$ nano ~./bashrc
+$ nano ~/.bashrc
 $ export OPENAI_API_KEY="YOUR_API_KEY"
 ```
 (venv)
